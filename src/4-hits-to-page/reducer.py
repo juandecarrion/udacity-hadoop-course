@@ -2,7 +2,7 @@
 
 import sys
 
-salesTotal = 0
+count = 0
 oldKey = None
 
 # Loop around the data
@@ -21,13 +21,13 @@ for line in sys.stdin:
     thisKey, thisSale = data_mapped
 
     if oldKey and oldKey != thisKey:
-        print oldKey, "\t", salesTotal
-        oldKey = thisKey;
-        salesTotal = 0
+        print oldKey, "\t", count
+        oldKey = thisKey
+        count = 0
 
     oldKey = thisKey
-    salesTotal += float(thisSale)
+    count += 1
 
-if oldKey != None:
-    print oldKey, "\t", salesTotal
+if oldKey:
+    print oldKey, "\t", count
 
